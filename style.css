@@ -1,0 +1,41 @@
+/* 背景色を黒からグレーへの夕暮れ時のようなグラデーション */
+body {
+    background: linear-gradient(135deg, #1a1a1a, #964b00);
+    color: #fff;
+}
+
+#logo_kintoys {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: auto;
+    animation: pulsing 6s infinite;
+}
+
+#logo_kintoys:hover {
+    animation: pulsing 3s infinite;
+}
+
+@keyframes pulsing {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
