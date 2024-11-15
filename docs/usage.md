@@ -2,7 +2,7 @@
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
-![](img/popup_0_4_3.png)
+![](./img/popup_0_4_3.png)
 
 ## Quick Copy
 

@@ -8,8 +8,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Home', link: './' },
+      { text: 'Examples', link: './markdown-examples' },
       { text: 'ChromeWebStore', link: 'https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee' }
     ],
 
@@ -17,8 +17,8 @@ export default defineConfig({
       {
         text: 'usage',
         items: [
-          { text: '使い方', link: '/usage' },
-          { text: 'テンプレート記法', link: '/template-examples' },
+          { text: '使い方', link: './usage' },
+          { text: 'テンプレート記法', link: './template-examples' },
         ]
       }
     ],
