@@ -10,4 +10,4 @@ applications:
                   - "**/*"
           cache:
               paths: []
-      appRoot: /docs/.vitepress/dist
+      appRoot: docs/.vitepress/dist
