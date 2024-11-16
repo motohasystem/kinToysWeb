@@ -31,5 +31,20 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/motohasystem/kinToys' }
     ]
-  }
+  },
+
+  head: [
+    [
+      'script',
+      { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1VC62B4WWE');`
+    ]
+  ],
 })
