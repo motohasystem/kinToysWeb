@@ -3,8 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "kinToys",
-  description: "A VitePress Site",
-  base: './',
+  description: "Keep Integrating New Toys",
   locales: {
     root: {
       label: 'Japanese',
