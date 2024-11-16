@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+lang: ja-JP
 
 hero:
   name: "kinToys"
@@ -43,4 +44,3 @@ features:
       src: ./img/2024-11-13-05-59-21.png
       width: 800px
 ---
->
