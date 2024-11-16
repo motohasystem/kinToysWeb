@@ -24,6 +24,7 @@ export default defineConfig({
         items: [
           { text: '使い方', link: '/usage' },
           { text: 'テンプレート記法', link: '/template-examples' },
+          { text: 'オプション画面', link: '/option-screen' },
         ]
       }
     ],

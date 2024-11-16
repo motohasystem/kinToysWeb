@@ -1,10 +1,10 @@
 # 主な使い方
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+kinToysの主要機能である**クイックコピー**と**グラブコピー**について解説します。
 
 ![](./img/popup_0_4_3.png)
 
-## Quick Copy
+## クイックコピー
 
 特定の情報を素早く取得したい場合に便利です。
 
@@ -12,7 +12,7 @@ kintoneの画面上で表のセルをクリックすることで、セル単体�
 
 コピー対象はポップアップウィンドウのラジオボタンであらかじめ選択しておきます。
 
-## Grab Copy
+## グラブコピー
 
 画面上のデータを一括して取得したいときに適しています。
 
