@@ -4,11 +4,17 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "kinToys",
   description: "A VitePress Site",
+  locales: {
+    root: {
+      label: 'Japanese',
+      lang: 'ja'
+    }
+  },
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
       { text: 'ChromeWebStore', link: 'https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee' }
     ],
 
