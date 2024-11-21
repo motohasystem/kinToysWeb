@@ -35,6 +35,9 @@ export default defineConfig({
   },
 
   head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["meta", { property: "og:image", content: "https://kintoys.app/og.png" }],
+    ["meta", { property: "og:site_name", content: "kinToys" }],
     [
       'script',
       { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE' }
