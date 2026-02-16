@@ -1,26 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
     <head>
-        <title>kinToys</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>kinToys - kintoneをもっと便利にするChrome拡張機能</title>
+        <meta name="description" content="kinToysはkintoneをもっと便利にするChrome拡張機能です。Chrome ウェブストアから無料でインストールできます。">
+        <link rel="canonical" href="https://motohasystem.github.io/kinToysWeb/">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <meta property="og:image" content="img/k^C_full.png" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="kinToys - kintoneをもっと便利にするChrome拡張機能">
+        <meta property="og:description" content="kinToysはkintoneをもっと便利にするChrome拡張機能です。Chrome ウェブストアから無料でインストールできます。">
+        <meta property="og:url" content="https://motohasystem.github.io/kinToysWeb/">
+        <meta property="og:image" content="https://motohasystem.github.io/kinToysWeb/img/k%5EC_full.png">
+        <meta property="og:site_name" content="kinToys">
+        <meta property="og:locale" content="ja_JP">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="kinToys - kintoneをもっと便利にするChrome拡張機能">
+        <meta name="twitter:description" content="kinToysはkintoneをもっと便利にするChrome拡張機能です。Chrome ウェブストアから無料でインストールできます。">
+        <meta name="twitter:image" content="https://motohasystem.github.io/kinToysWeb/img/k%5EC_full.png">
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "kinToys",
+            "description": "kintoneをもっと便利にするChrome拡張機能",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "JPY"
+            },
+            "installUrl": "https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee",
+            "image": "https://motohasystem.github.io/kinToysWeb/img/k%5EC_full.png"
+        }
+        </script>
     </head>
 
     <body>
-        <div class="container">
-            <a href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">
-                <img id="logo_kintoys" src="img/k^C_full.png" alt="k^C_full" class="center">
-            </a>
-        </div>
-    </body>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <main>
+            <div class="container">
+                <h1 class="visually-hidden">kinToys - kintoneをもっと便利にするChrome拡張機能</h1>
+                <a href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">
+                    <img id="logo_kintoys" src="img/k^C_full.png" alt="kinToys Chrome拡張機能のロゴ" class="center">
+                </a>
+            </div>
+        </main>
 
-        gtag('config', 'G-1VC62B4WWE');
-    </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1VC62B4WWE');
+        </script>
+    </body>
 
 </html>

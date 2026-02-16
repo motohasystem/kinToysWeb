@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://motohasystem.github.io/kinToysWeb/sitemap.xml
