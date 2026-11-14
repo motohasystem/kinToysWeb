@@ -1,18 +1,123 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
-    <head>
-        <title>kinToys</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <meta property="og:image" content="img/k^C_full.png" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>kinToys</title>
+    <!-- TODO(仮テキスト): description を正式な紹介文に差し替え -->
+    <meta name="description" content="kinToys は、毎日の作業をちょっと便利に、ちょっと楽しくする Chrome 拡張機能です。">
+    <meta property="og:title" content="kinToys">
+    <meta property="og:description" content="毎日の作業をちょっと便利に、ちょっと楽しくする Chrome 拡張機能。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/k%5EC_full.png">
+    <link rel="icon" type="image/png" href="img/k%5EC_full.png">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <div class="container">
-            <a href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">
-                <img id="logo_kintoys" src="img/k^C_full.png" alt="k^C_full" class="center">
-            </a>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html"><img src="img/k%5EC_full.png" alt="">kinToys</a>
+            <button class="nav-toggle" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <nav class="site-nav" id="site-nav">
+                <ul>
+                    <li><a href="index.html" aria-current="page">トップ</a></li>
+                    <li><a href="features.html">機能</a></li>
+                    <li><a href="usage.html">使い方</a></li>
+                    <li><a href="privacy.html">プライバシー</a></li>
+                </ul>
+            </nav>
         </div>
-    </body>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <div>
+                    <!-- TODO(仮テキスト): キャッチコピーとリード文 -->
+                    <h1>いつもの作業に、<br><span class="nowrap">ちょっとした<code>おもちゃ</code>を。</span></h1>
+                    <p class="lead">kinToys は、毎日のブラウザ作業を便利に、そして少し楽しくする小さな道具を詰め込んだ Chrome 拡張機能です。</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">Chrome に追加する</a>
+                        <a class="btn btn-ghost" href="features.html">機能を見る</a>
+                    </div>
+                </div>
+                <img class="hero-logo" src="img/k%5EC_full.png" alt="kinToys ロゴ">
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">kinToys でできること</h2>
+                <!-- TODO(仮テキスト): 主要機能3つの紹介 -->
+                <p class="section-lead">必要なときにすぐ取り出せる、小さくて便利な機能をまとめました。</p>
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">k</div>
+                        <h3>ワンクリックで時短</h3>
+                        <p>よく使う操作をボタンひとつで。繰り返し作業の手間を減らします。</p>
+                    </article>
+                    <article class="card">
+                        <div class="icon">^</div>
+                        <h3>画面をもっと見やすく</h3>
+                        <p>表示を整えて、必要な情報にすばやくたどり着けるようにします。</p>
+                    </article>
+                    <article class="card">
+                        <div class="icon">C</div>
+                        <h3>好きな機能だけ ON</h3>
+                        <p>使いたいツールだけを有効化。ブラウザの邪魔をしません。</p>
+                    </article>
+                </div>
+                <p style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="features.html">すべての機能を見る →</a></p>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="wrap">
+                <h2 class="section-title">はじめかた</h2>
+                <p class="section-lead">インストールは 1 分で完了します。</p>
+                <ol class="steps">
+                    <li>
+                        <h3>Chrome ウェブストアから追加</h3>
+                        <p>「Chrome に追加」ボタンを押して拡張機能をインストールします。</p>
+                    </li>
+                    <li>
+                        <h3>ツールバーにピン留め</h3>
+                        <p>パズルアイコンから kinToys をピン留めすると、すぐに呼び出せます。</p>
+                    </li>
+                    <li>
+                        <h3>使いたい機能をオンに</h3>
+                        <p>設定画面で好きな機能を選ぶだけ。あとはいつも通り作業するだけです。</p>
+                    </li>
+                </ol>
+                <p style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="usage.html">詳しい使い方 →</a></p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="wrap">
+                <h2>さっそく試してみませんか?</h2>
+                <p>kinToys は無料で使えます。</p>
+                <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">Chrome ウェブストアへ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="features.html">機能</a></li>
+                <li><a href="usage.html">使い方</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="https://github.com/motohasystem/kinToysWeb">GitHub</a></li>
+            </ul>
+            <small>&copy; <span id="year">2026</span> kinToys</small>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE"></script>
     <script>
@@ -22,5 +127,6 @@
 
         gtag('config', 'G-1VC62B4WWE');
     </script>
+</body>
 
 </html>

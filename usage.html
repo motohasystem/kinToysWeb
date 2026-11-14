@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>使い方 | kinToys</title>
+    <meta name="description" content="kinToys のインストール方法と使い方、よくある質問。">
+    <meta property="og:title" content="使い方 | kinToys">
+    <meta property="og:image" content="img/k%5EC_full.png">
+    <link rel="icon" type="image/png" href="img/k%5EC_full.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html"><img src="img/k%5EC_full.png" alt="">kinToys</a>
+            <button class="nav-toggle" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <nav class="site-nav" id="site-nav">
+                <ul>
+                    <li><a href="index.html">トップ</a></li>
+                    <li><a href="features.html">機能</a></li>
+                    <li><a href="usage.html" aria-current="page">使い方</a></li>
+                    <li><a href="privacy.html">プライバシー</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head">
+            <div class="wrap">
+                <h1>使い方</h1>
+                <p>インストールから基本的な使い方までをまとめました。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">インストール</h2>
+                <p class="section-lead">Google Chrome(または Chromium 系ブラウザ)で以下の手順を行ってください。</p>
+                <ol class="steps">
+                    <li>
+                        <h3>Chrome ウェブストアを開く</h3>
+                        <p><a href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">kinToys のストアページ</a>を開きます。</p>
+                    </li>
+                    <li>
+                        <h3>「Chrome に追加」をクリック</h3>
+                        <p>確認ダイアログが表示されたら「拡張機能を追加」を選びます。</p>
+                    </li>
+                    <li>
+                        <h3>ツールバーにピン留め</h3>
+                        <p>アドレスバー右のパズルアイコンから kinToys のピンをオンにします。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="wrap">
+                <h2 class="section-title">基本の使い方</h2>
+                <!-- TODO(仮テキスト): 実際の操作手順に差し替え -->
+                <p class="section-lead">ここに基本操作の流れが入ります。</p>
+                <ol class="steps">
+                    <li>
+                        <h3>アイコンをクリック</h3>
+                        <p>ツールバーの kinToys アイコンを押すとメニューが開きます。</p>
+                    </li>
+                    <li>
+                        <h3>使いたい機能を選ぶ</h3>
+                        <p>一覧から機能を選ぶと、表示中のページで動作します。</p>
+                    </li>
+                    <li>
+                        <h3>設定をカスタマイズ</h3>
+                        <p>オプション画面で各機能の ON / OFF や動作を調整できます。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">よくある質問</h2>
+                <!-- TODO(仮テキスト): FAQ の内容を確認・差し替え -->
+                <div class="faq prose">
+                    <details>
+                        <summary>料金はかかりますか?</summary>
+                        <p>無料でご利用いただけます。</p>
+                    </details>
+                    <details>
+                        <summary>アイコンが表示されません。</summary>
+                        <p>パズルアイコンから kinToys をピン留めしてください。表示されない場合は chrome://extensions で有効になっているか確認してください。</p>
+                    </details>
+                    <details>
+                        <summary>不具合や要望はどこに伝えればよいですか?</summary>
+                        <p>Chrome ウェブストアのサポート欄、または GitHub からお知らせください。</p>
+                    </details>
+                    <details>
+                        <summary>アンインストール方法は?</summary>
+                        <p>kinToys アイコンを右クリックし「Chrome から削除」を選びます。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="features.html">機能</a></li>
+                <li><a href="usage.html">使い方</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="https://github.com/motohasystem/kinToysWeb">GitHub</a></li>
+            </ul>
+            <small>&copy; <span id="year">2026</span> kinToys</small>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VC62B4WWE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1VC62B4WWE');
+    </script>
+</body>
+
+</html>
