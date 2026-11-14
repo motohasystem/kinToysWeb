@@ -1,0 +1,8 @@
+# 旧 VitePress 版 kintoys.app の URL を新しいページへ転送
+/template-examples.html  /usage.html#template  301
+/template-examples       /usage.html#template  301
+/option-screen.html      /usage.html#options   301
+/option-screen           /usage.html#options   301
+/install.html            /usage.html           301
+/install                 /usage.html           301
+/img/kintone_ctrl_c.png  /img/k%5EC_full.png   301
