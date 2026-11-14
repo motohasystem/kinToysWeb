@@ -305,7 +305,7 @@ a {
 /* ---------- Cards ---------- */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -523,4 +523,79 @@ a {
     .hero h1 {
         font-size: 1.7rem;
     }
+}
+
+/* ---------- 追加: アイブロウ / 記事リスト / コード ---------- */
+.hero .eyebrow {
+    margin: 0 0 12px;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+.articles {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 760px;
+    display: grid;
+    gap: 12px;
+}
+
+.articles a {
+    display: block;
+    padding: 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.articles a:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.articles strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.articles span {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+}
+
+.prose h3 {
+    margin: 28px 0 8px;
+    font-size: 1.05rem;
+}
+
+.prose code {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    padding: 0.1em 0.4em;
+    background: var(--paper-alt);
+    border-radius: 4px;
+}
+
+.prose pre {
+    overflow-x: auto;
+    padding: 16px 20px;
+    background: #2a2118;
+    color: #ffe9cc;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.prose pre code {
+    padding: 0;
+    background: none;
+    color: inherit;
 }

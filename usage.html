@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>使い方 | kinToys</title>
-    <meta name="description" content="kinToys のインストール方法と使い方、よくある質問。">
+    <meta name="description" content="kinToys の使い方。ポップアップ・画面クリック・右クリックメニューからのコピー、テンプレート記法、オプション画面、無効モードを解説します。">
     <meta property="og:title" content="使い方 | kinToys">
     <meta property="og:image" content="img/k%5EC_full.png">
     <link rel="icon" type="image/png" href="img/k%5EC_full.png">
@@ -32,7 +32,7 @@
         <section class="page-head">
             <div class="wrap">
                 <h1>使い方</h1>
-                <p>インストールから基本的な使い方までをまとめました。</p>
+                <p>kinToys には「ポップアップからのコピー」と「画面クリックによるコピー」の二通りのコピー方法があります。</p>
             </div>
         </section>
 
@@ -58,31 +58,98 @@
         </section>
 
         <section class="section alt">
-            <div class="wrap">
-                <h2 class="section-title">基本の使い方</h2>
-                <!-- TODO(仮テキスト): 実際の操作手順に差し替え -->
-                <p class="section-lead">ここに基本操作の流れが入ります。</p>
-                <ol class="steps">
-                    <li>
-                        <h3>アイコンをクリック</h3>
-                        <p>ツールバーの kinToys アイコンを押すとメニューが開きます。</p>
-                    </li>
-                    <li>
-                        <h3>使いたい機能を選ぶ</h3>
-                        <p>一覧から機能を選ぶと、表示中のページで動作します。</p>
-                    </li>
-                    <li>
-                        <h3>設定をカスタマイズ</h3>
-                        <p>オプション画面で各機能の ON / OFF や動作を調整できます。</p>
-                    </li>
-                </ol>
+            <div class="wrap prose">
+                <h2>ポップアップからコピー</h2>
+                <p>ブラウザのツールバーにある kinToys アイコンをクリックすると、ポップアップウィンドウが開きます。表示中の画面に応じて、次のコピーができます。</p>
+                <h3>一覧画面で</h3>
+                <ul>
+                    <li>テーブルをコピー</li>
+                    <li>フィールドをコピー</li>
+                    <li>レコードをコピー</li>
+                    <li>テンプレートに流し込んでコピー</li>
+                </ul>
+                <h3>詳細画面で</h3>
+                <ul>
+                    <li>CSV / TSV をコピー</li>
+                    <li>JSON をコピー</li>
+                    <li>テンプレートに流し込んでコピー</li>
+                </ul>
+                <h3>編集画面で</h3>
+                <ul>
+                    <li>クリップボードの CSV をサブテーブルに貼り付け(オプションで有効化)</li>
+                </ul>
+
+                <h2>画面クリックでコピー</h2>
+                <p>一覧画面・詳細画面をクリックしてコピーできます。</p>
+                <ul>
+                    <li>フィールドをコピー</li>
+                    <li>レコードの表示をコピー</li>
+                    <li>レコードの全体をコピー</li>
+                    <li>URL リンクをコピー</li>
+                </ul>
+
+                <h2>コンテキストメニューからコピー</h2>
+                <p>右クリックメニューから次の機能を使えます。</p>
+                <ul>
+                    <li>シンプルな URL をコピー</li>
+                    <li>一覧画面の改行表示をトグル</li>
+                </ul>
+
+                <h2>アプリ設定画面・プラグイン設定画面</h2>
+                <ul>
+                    <li>アプリ設定(フォーム編集)画面で、フィールド設定ダイアログの内容を JSON でコピー&amp;ペースト</li>
+                    <li>一覧の絞り込みダイアログで、絞り込み条件・ソート条件を JSON でコピー&amp;ペースト</li>
+                    <li>プラグイン設定画面で、設定ファイルをダウンロード / アップロード</li>
+                </ul>
+
+                <h2>無効モード</h2>
+                <p>kinToys の機能を一時的に停止できます。ポップアップの右上に表示されているラジオボタンから切り替えてください。無効化中はラジオボタンに網掛けが入ります。</p>
+            </div>
+        </section>
+
+        <section class="section" id="template">
+            <div class="wrap prose">
+                <h2>テンプレート記法</h2>
+                <p>kinToys では、kintone のフィールド値を埋め込むテンプレートを使えます。テンプレートはオプション画面で作成し、ポップアップのラジオボタンを <code>template</code> にしているときのコピーに適用されます。</p>
+
+                <h3>% 記法(フィールド単体の置換)</h3>
+                <p>フィールドコードを <code>%</code> で囲んで指定すると、そのフィールドの値に置き換わります。</p>
+                <pre><code>このフィールドには『%SINGLE_LINE_TEXT%』と記入されています。</code></pre>
+                <p>フィールドコード <code>SINGLE_LINE_TEXT</code> の値が「あいうえお」なら、次のように出力されます。</p>
+                <pre><code>このフィールドには『あいうえお』と記入されています。</code></pre>
+
+                <h3>ループ記法(テーブルの展開)</h3>
+                <p>kintone アプリのテーブル(サブテーブル)を展開できます。ループは <code>%フィールドコード{</code> で始まり、<code>}%</code> で終わります。たとえば次のテンプレートで JSON を出力できます。</p>
+                <pre><code>[
+%table{
+  {
+    "action": "%action%",
+    "text": "%text%"
+  } %joint%
+}%
+]</code></pre>
+                <p>kinToys のテンプレートには今のところ条件分岐がありません。JSON の要素区切りのカンマのように「最後の要素だけ不要」なものは、kintone アプリ側にカンマの要否を持つフィールドを用意してください。上の例では <code>%joint%</code> というフィールドにカンマを持たせています。kintone の計算式を組み合わせれば、より柔軟な出力が可能です。</p>
+            </div>
+        </section>
+
+        <section class="section alt" id="options">
+            <div class="wrap prose">
+                <h2>オプション画面</h2>
+                <p>ツールバーの kinToys アイコンを右クリックして「オプション」を選ぶか、ポップアップにある options リンクからオプション画面を開きます。</p>
+                <h3>テンプレート設定</h3>
+                <p>テンプレートコピーで使うテンプレートを作成します。書き方は<a href="#template">テンプレート記法</a>を参照してください。</p>
+                <h3>オプション設定</h3>
+                <ul>
+                    <li><strong>Enable image copy button</strong> — ポップアップからグラブコピーした際に、テキストを画像としてクリップボードにコピーします。</li>
+                    <li><strong>Break multi-line and single-line text</strong> — 一覧画面・詳細画面で、一行文字列と複数行文字列を改行表示します。</li>
+                    <li>フィールド設定を整形済み JSON でコピーする設定、サブテーブルインポーターの有効化、表示言語の切り替えなどもここで行います。</li>
+                </ul>
             </div>
         </section>
 
         <section class="section">
             <div class="wrap">
                 <h2 class="section-title">よくある質問</h2>
-                <!-- TODO(仮テキスト): FAQ の内容を確認・差し替え -->
                 <div class="faq prose">
                     <details>
                         <summary>料金はかかりますか?</summary>
@@ -93,12 +160,16 @@
                         <p>パズルアイコンから kinToys をピン留めしてください。表示されない場合は chrome://extensions で有効になっているか確認してください。</p>
                     </details>
                     <details>
-                        <summary>不具合や要望はどこに伝えればよいですか?</summary>
-                        <p>Chrome ウェブストアのサポート欄、または GitHub からお知らせください。</p>
+                        <summary>一時的に kinToys を止めたいときは?</summary>
+                        <p>ポップアップ右上のラジオボタンで無効モードに切り替えられます。</p>
                     </details>
                     <details>
-                        <summary>アンインストール方法は?</summary>
-                        <p>kinToys アイコンを右クリックし「Chrome から削除」を選びます。</p>
+                        <summary>更新内容はどこで確認できますか?</summary>
+                        <p><a href="https://github.com/motohasystem/kinToys/blob/main/src/CHANGELOG.md">CHANGELOG(GitHub)</a>で確認できます。</p>
+                    </details>
+                    <details>
+                        <summary>不具合や要望はどこに伝えればよいですか?</summary>
+                        <p><a href="https://github.com/motohasystem/kinToys">GitHub</a> または Chrome ウェブストアのサポート欄からお知らせください。</p>
                     </details>
                 </div>
             </div>
@@ -112,7 +183,8 @@
                 <li><a href="features.html">機能</a></li>
                 <li><a href="usage.html">使い方</a></li>
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="https://github.com/motohasystem/kinToysWeb">GitHub</a></li>
+                <li><a href="https://github.com/motohasystem/kinToys">GitHub</a></li>
+                <li><a href="https://note.com/motohasystem/m/m4abef4516e33">note</a></li>
             </ul>
             <small>&copy; <span id="year">2026</span> kinToys</small>
         </div>

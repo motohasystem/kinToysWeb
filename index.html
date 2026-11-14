@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>kinToys</title>
-    <!-- TODO(仮テキスト): description を正式な紹介文に差し替え -->
-    <meta name="description" content="kinToys は、毎日の作業をちょっと便利に、ちょっと楽しくする Chrome 拡張機能です。">
+    <meta name="description" content="kinToys は、クリップボードで kintone を便利にするブラウザ拡張です。一覧や詳細画面のデータを CSV / TSV / JSON / YAML やテンプレートでワンクリックコピー。">
     <meta property="og:title" content="kinToys">
-    <meta property="og:description" content="毎日の作業をちょっと便利に、ちょっと楽しくする Chrome 拡張機能。">
+    <meta property="og:description" content="クリップボードで kintone を便利にするブラウザ拡張。Keep Integrating New Toys.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="img/k%5EC_full.png">
     <link rel="icon" type="image/png" href="img/k%5EC_full.png">
@@ -35,9 +34,9 @@
         <section class="hero">
             <div class="wrap">
                 <div>
-                    <!-- TODO(仮テキスト): キャッチコピーとリード文 -->
-                    <h1>いつもの作業に、<br><span class="nowrap">ちょっとした<code>おもちゃ</code>を。</span></h1>
-                    <p class="lead">kinToys は、毎日のブラウザ作業を便利に、そして少し楽しくする小さな道具を詰め込んだ Chrome 拡張機能です。</p>
+                    <p class="eyebrow">Keep Integrating New Toys</p>
+                    <h1>クリップボードで<br><span class="nowrap"><code>kintone</code> を便利に。</span></h1>
+                    <p class="lead">kinToys は、kintone のデータをいろいろな角度からクリップボードに取り出す、遊び心のあるブラウザ拡張です。一覧・詳細・設定画面のちょっとした「めんどう」を、小さな「おもちゃ」たちが片付けます。</p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee">Chrome に追加する</a>
                         <a class="btn btn-ghost" href="features.html">機能を見る</a>
@@ -50,23 +49,37 @@
         <section class="section">
             <div class="wrap">
                 <h2 class="section-title">kinToys でできること</h2>
-                <!-- TODO(仮テキスト): 主要機能3つの紹介 -->
-                <p class="section-lead">必要なときにすぐ取り出せる、小さくて便利な機能をまとめました。</p>
+                <p class="section-lead">kintone から外へ、外から kintone へ。コピペでつなぐための機能をまとめました。</p>
                 <div class="cards">
                     <article class="card">
                         <div class="icon">k</div>
-                        <h3>ワンクリックで時短</h3>
-                        <p>よく使う操作をボタンひとつで。繰り返し作業の手間を減らします。</p>
+                        <h3>ポップアップから一括コピー</h3>
+                        <p>一覧のテーブルやレコードを CSV / TSV / JSON / YAML でコピー。TSV ならそのまま Excel に貼り付けられます。</p>
                     </article>
                     <article class="card">
                         <div class="icon">^</div>
-                        <h3>画面をもっと見やすく</h3>
-                        <p>表示を整えて、必要な情報にすばやくたどり着けるようにします。</p>
+                        <h3>画面クリックでコピー</h3>
+                        <p>一覧や詳細画面でフィールドをクリックするだけで値をコピー。レコードの URL もすぐ取り出せます。</p>
                     </article>
                     <article class="card">
                         <div class="icon">C</div>
-                        <h3>好きな機能だけ ON</h3>
-                        <p>使いたいツールだけを有効化。ブラウザの邪魔をしません。</p>
+                        <h3>テンプレートで定型文</h3>
+                        <p>自作のテンプレートにフィールド値を埋め込んで、メール文面や JSON などの定型文を作れます。</p>
+                    </article>
+                    <article class="card">
+                        <div class="icon">⚙</div>
+                        <h3>フィールド設定をコピペ</h3>
+                        <p>アプリ設定画面のフィールド設定や、一覧の絞り込み・ソート条件を JSON でコピー&amp;ペースト。</p>
+                    </article>
+                    <article class="card">
+                        <div class="icon">⇅</div>
+                        <h3>サブテーブルへ貼り付け</h3>
+                        <p>クリップボードの CSV を、編集画面のサブテーブルにまとめて流し込めます。</p>
+                    </article>
+                    <article class="card">
+                        <div class="icon">⇩</div>
+                        <h3>プラグイン設定の保存</h3>
+                        <p>プラグイン設定画面で、設定ファイルをダウンロード / アップロードできます。</p>
                     </article>
                 </div>
                 <p style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="features.html">すべての機能を見る →</a></p>
@@ -87,11 +100,27 @@
                         <p>パズルアイコンから kinToys をピン留めすると、すぐに呼び出せます。</p>
                     </li>
                     <li>
-                        <h3>使いたい機能をオンに</h3>
-                        <p>設定画面で好きな機能を選ぶだけ。あとはいつも通り作業するだけです。</p>
+                        <h3>kintone を開いてアイコンをクリック</h3>
+                        <p>一覧や詳細画面でアイコンを押すとポップアップが開き、コピー方法を選べます。</p>
                     </li>
                 </ol>
                 <p style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="usage.html">詳しい使い方 →</a></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">活用記事</h2>
+                <p class="section-lead">note で kinToys の使いこなし方を紹介しています。</p>
+                <ul class="articles">
+                    <li><a href="https://note.com/motohasystem/n/n4d62c58803ae?magazine_key=m4abef4516e33"><strong>kintoneアプリ作りでフィールド設定をコピペしたい</strong><span>アプリ設定画面でもフィールド設定ダイアログをコピペできるようになりました。</span></a></li>
+                    <li><a href="https://note.com/motohasystem/n/n7e0962e3b99b?magazine_key=m4abef4516e33"><strong>毎日のkintone操作を数クリックだけ楽にする２つの新機能（kinToys ver.0.4.5）</strong><span>一覧画面の改行表示と、シンプルURLのコピー機能を追加しました。</span></a></li>
+                    <li><a href="https://note.com/motohasystem/n/n9797e9be0a2c?magazine_key=m4abef4516e33"><strong>コピペでOK！ kintoneスペースのカバー画像をカスタマイズしよう</strong><span>Webアプリとして、スペース画像作成ツールを公開しました。</span></a></li>
+                    <li><a href="https://note.com/motohasystem/n/nd12db3adbc6f"><strong>アプリ間連携の最速アプローチ！</strong><span>kintoneからクリップボードに1クリックでコピーします。</span></a></li>
+                    <li><a href="https://note.com/motohasystem/n/ne8a7a13a7126?magazine_key=m4abef4516e33"><strong>対Excelならばタブ区切りが最強だ！</strong><span>TSVでコピーしてそのままExcelにペーストできます。</span></a></li>
+                    <li><a href="https://note.com/motohasystem/n/na12953122421"><strong>あなただけのkintone連携をいますぐ作り上げろ！</strong><span>自作のテンプレートにフィールド値を埋め込んで定型文を作れます。</span></a></li>
+                </ul>
+                <p style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="https://note.com/motohasystem/m/m4abef4516e33">note のマガジンを見る →</a></p>
             </div>
         </section>
 
@@ -111,7 +140,8 @@
                 <li><a href="features.html">機能</a></li>
                 <li><a href="usage.html">使い方</a></li>
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="https://github.com/motohasystem/kinToysWeb">GitHub</a></li>
+                <li><a href="https://github.com/motohasystem/kinToys">GitHub</a></li>
+                <li><a href="https://note.com/motohasystem/m/m4abef4516e33">note</a></li>
             </ul>
             <small>&copy; <span id="year">2026</span> kinToys</small>
         </div>

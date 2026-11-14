@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>機能 | kinToys</title>
-    <meta name="description" content="kinToys の機能一覧です。">
+    <meta name="description" content="kinToys の機能一覧。ポップアップやクリックで kintone のデータを CSV / TSV / JSON / YAML やテンプレートでコピー。フィールド設定や絞り込み条件のコピペにも対応。">
     <meta property="og:title" content="機能 | kinToys">
     <meta property="og:image" content="img/k%5EC_full.png">
     <link rel="icon" type="image/png" href="img/k%5EC_full.png">
@@ -38,43 +38,146 @@
 
         <section class="section">
             <div class="wrap">
-                <!-- TODO(仮テキスト): 実際の機能名・説明に差し替え。カードは必要な数だけ複製してください -->
+                <h2 class="section-title">ポップアップからコピー</h2>
+                <p class="section-lead">ツールバーの kinToys アイコンから開くポップアップで、表示中の画面のデータをまとめてコピーします。</p>
                 <div class="cards">
                     <article class="card">
                         <div class="icon">01</div>
-                        <h3>機能名 A</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">作業効率化</span>
+                        <h3>テーブルをコピー</h3>
+                        <p>一覧画面に表示中のテーブルを CSV / TSV などでコピー。TSV ならそのまま Excel に貼り付けられます。</p>
+                        <span class="tag">一覧画面</span>
                     </article>
                     <article class="card">
                         <div class="icon">02</div>
-                        <h3>機能名 B</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">表示カスタマイズ</span>
+                        <h3>フィールド・レコードをコピー</h3>
+                        <p>一覧画面から特定のフィールドだけ、またはレコード単位でコピーできます。</p>
+                        <span class="tag">一覧画面</span>
                     </article>
                     <article class="card">
                         <div class="icon">03</div>
-                        <h3>機能名 C</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">データ操作</span>
+                        <h3>CSV / TSV / JSON でコピー</h3>
+                        <p>詳細画面のレコードを CSV / TSV や JSON 形式でクリップボードへ。</p>
+                        <span class="tag">詳細画面</span>
                     </article>
                     <article class="card">
                         <div class="icon">04</div>
-                        <h3>機能名 D</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">作業効率化</span>
+                        <h3>テンプレートに流し込んでコピー</h3>
+                        <p>自作のテンプレートにフィールド値を埋め込み、メール文面や JSON などの定型文を作れます。</p>
+                        <span class="tag">一覧・詳細画面</span>
                     </article>
                     <article class="card">
                         <div class="icon">05</div>
-                        <h3>機能名 E</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">ナビゲーション</span>
+                        <h3>サブテーブルに CSV を貼り付け</h3>
+                        <p>クリップボードの CSV を、編集画面のサブテーブルへまとめて流し込みます(オプションで有効化)。</p>
+                        <span class="tag">編集画面</span>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="wrap">
+                <h2 class="section-title">画面クリックでコピー</h2>
+                <p class="section-lead">ポップアップを開かなくても、画面をクリックするだけでコピーできます。</p>
+                <div class="cards">
                     <article class="card">
                         <div class="icon">06</div>
-                        <h3>機能名 F</h3>
-                        <p>この機能の説明が入ります。どんな場面で、何が便利になるのかを 1〜2 文で紹介します。</p>
-                        <span class="tag">お楽しみ</span>
+                        <h3>フィールドをコピー</h3>
+                        <p>一覧画面・詳細画面でフィールドの値をクリックしてコピーします。</p>
+                        <span class="tag">一覧・詳細画面</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">07</div>
+                        <h3>レコードの表示・全体をコピー</h3>
+                        <p>一覧画面の行から、表示されている内容またはレコード全体をコピーします。</p>
+                        <span class="tag">一覧画面</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">08</div>
+                        <h3>URL リンクをコピー</h3>
+                        <p>レコードへの URL リンクをコピーして、チャットやメールにすぐ貼れます。</p>
+                        <span class="tag">一覧画面</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">コンテキストメニュー</h2>
+                <p class="section-lead">右クリックメニューからも機能を呼び出せます。</p>
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">09</div>
+                        <h3>シンプルな URL をコピー</h3>
+                        <p>余計なパラメータを省いた、すっきりしたレコード URL をコピーします。</p>
+                        <span class="tag">右クリック</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">10</div>
+                        <h3>一覧画面の改行表示をトグル</h3>
+                        <p>一覧画面で文字列フィールドの改行表示を切り替えます。</p>
+                        <span class="tag">右クリック</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="wrap">
+                <h2 class="section-title">アプリ設定・プラグイン設定</h2>
+                <p class="section-lead">アプリを作る人、管理する人のための機能です。</p>
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">11</div>
+                        <h3>フィールド設定をコピペ</h3>
+                        <p>フォーム編集画面のフィールド設定ダイアログを JSON でコピー&amp;ペースト。文字列・数値・計算・日時・ドロップダウン・ユーザー選択・関連レコード一覧・ルックアップなど多くのフィールドに対応します。</p>
+                        <span class="tag">アプリ設定</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">12</div>
+                        <h3>絞り込み・ソート条件をコピペ</h3>
+                        <p>一覧の絞り込みダイアログで、絞り込み条件とソート条件を JSON でコピー&amp;ペーストできます。</p>
+                        <span class="tag">一覧の絞り込み</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">13</div>
+                        <h3>プラグイン設定ファイルの保存</h3>
+                        <p>プラグイン設定画面で、設定ファイルをダウンロード / アップロードできます。</p>
+                        <span class="tag">プラグイン設定</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2 class="section-title">オプションとその他</h2>
+                <p class="section-lead">オプション画面で、好みに合わせて動作を調整できます。</p>
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">14</div>
+                        <h3>画像コピーボタン</h3>
+                        <p>ポップアップからグラブコピーしたテキストを、画像としてクリップボードにコピーできます。</p>
+                        <span class="tag">オプション</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">15</div>
+                        <h3>文字列の改行表示</h3>
+                        <p>一覧画面・詳細画面で、一行文字列と複数行文字列を改行表示します。</p>
+                        <span class="tag">オプション</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">16</div>
+                        <h3>無効モード</h3>
+                        <p>ポップアップ右上のラジオボタンから、kinToys の機能を一時的に停止できます。</p>
+                        <span class="tag">ポップアップ</span>
+                    </article>
+                    <article class="card">
+                        <div class="icon">17</div>
+                        <h3>多言語対応</h3>
+                        <p>日本語・英語・中国語(簡体/繁体)・スペイン語・ポルトガル語・タイ語・ベトナム語に対応しています。</p>
+                        <span class="tag">オプション</span>
                     </article>
                 </div>
             </div>
@@ -96,7 +199,8 @@
                 <li><a href="features.html">機能</a></li>
                 <li><a href="usage.html">使い方</a></li>
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="https://github.com/motohasystem/kinToysWeb">GitHub</a></li>
+                <li><a href="https://github.com/motohasystem/kinToys">GitHub</a></li>
+                <li><a href="https://note.com/motohasystem/m/m4abef4516e33">note</a></li>
             </ul>
             <small>&copy; <span id="year">2026</span> kinToys</small>
         </div>
