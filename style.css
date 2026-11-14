@@ -599,3 +599,77 @@ a {
     background: none;
     color: inherit;
 }
+
+/* ---------- 追加: スクリーンショット ---------- */
+.showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    align-items: start;
+    margin: 0 auto 40px;
+}
+
+.showcase.single {
+    max-width: 640px;
+}
+
+.shot {
+    margin: 0;
+}
+
+.shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(120, 70, 0, 0.12);
+    background: #fff;
+}
+
+.shot figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+}
+
+.prose .shot {
+    margin: 20px auto 28px;
+    max-width: 560px;
+}
+
+.prose .shot.medium { max-width: 480px; }
+.prose .shot.small { max-width: 280px; }
+
+/* 記事一覧をサムネイル付きカードに */
+.articles {
+    max-width: none;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.articles a {
+    height: 100%;
+    padding: 0 0 16px;
+    overflow: hidden;
+}
+
+.articles img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.articles strong,
+.articles span {
+    padding: 0 16px;
+}
+
+.shot.tall,
+.prose .shot.tall {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}

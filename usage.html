@@ -61,6 +61,10 @@
             <div class="wrap prose">
                 <h2>ポップアップからコピー</h2>
                 <p>ブラウザのツールバーにある kinToys アイコンをクリックすると、ポップアップウィンドウが開きます。表示中の画面に応じて、次のコピーができます。</p>
+                <figure class="shot">
+                    <img src="img/popup.png" alt="kinToys のポップアップ画面。区切り文字、抽出範囲、レコード単位の書式を選んでコピーできる" width="832" height="761" loading="lazy">
+                    <figcaption>ポップアップ画面</figcaption>
+                </figure>
                 <h3>一覧画面で</h3>
                 <ul>
                     <li>テーブルをコピー</li>
@@ -81,6 +85,10 @@
 
                 <h2>画面クリックでコピー</h2>
                 <p>一覧画面・詳細画面をクリックしてコピーできます。</p>
+                <figure class="shot">
+                    <img src="img/click_copy_demo.gif" alt="kintone の一覧画面のセルをクリックしてコピーし、別のアプリに貼り付けているデモ" width="800" height="450" loading="lazy">
+                    <figcaption>一覧画面をクリックしてコピー</figcaption>
+                </figure>
                 <ul>
                     <li>フィールドをコピー</li>
                     <li>レコードの表示をコピー</li>
@@ -101,9 +109,17 @@
                     <li>一覧の絞り込みダイアログで、絞り込み条件・ソート条件を JSON でコピー&amp;ペースト</li>
                     <li>プラグイン設定画面で、設定ファイルをダウンロード / アップロード</li>
                 </ul>
+                <figure class="shot tall">
+                    <img src="img/field_settings_dialog.png" alt="kintone のフィールド設定ダイアログ(チェックボックスの設定)に項目をまとめて貼り付けた例" width="784" height="964" loading="lazy">
+                    <figcaption>フィールド設定ダイアログへの貼り付け</figcaption>
+                </figure>
 
                 <h2>無効モード</h2>
                 <p>kinToys の機能を一時的に停止できます。ポップアップの右上に表示されているラジオボタンから切り替えてください。無効化中はラジオボタンに網掛けが入ります。</p>
+                <figure class="shot">
+                    <img src="img/popup_disabled.png" alt="無効モードのポップアップ画面。ラジオボタンに網掛けが入っている" width="831" height="756" loading="lazy">
+                    <figcaption>無効モード中のポップアップ</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -115,11 +131,21 @@
                 <h3>% 記法(フィールド単体の置換)</h3>
                 <p>フィールドコードを <code>%</code> で囲んで指定すると、そのフィールドの値に置き換わります。</p>
                 <pre><code>このフィールドには『%SINGLE_LINE_TEXT%』と記入されています。</code></pre>
-                <p>フィールドコード <code>SINGLE_LINE_TEXT</code> の値が「あいうえお」なら、次のように出力されます。</p>
+                <p>フィールドコード <code>SINGLE_LINE_TEXT</code> の値が「あいうえお」なら、</p>
+                <figure class="shot small">
+                    <img src="img/template_field.png" alt="値が「あいうえお」の文字列(1行)フィールド" width="337" height="148" loading="lazy">
+                    <figcaption>値が「あいうえお」のフィールド</figcaption>
+                </figure>
+                <p>次のように出力されます。</p>
                 <pre><code>このフィールドには『あいうえお』と記入されています。</code></pre>
 
                 <h3>ループ記法(テーブルの展開)</h3>
-                <p>kintone アプリのテーブル(サブテーブル)を展開できます。ループは <code>%フィールドコード{</code> で始まり、<code>}%</code> で終わります。たとえば次のテンプレートで JSON を出力できます。</p>
+                <p>kintone アプリのテーブル(サブテーブル)を展開できます。ループは <code>%フィールドコード{</code> で始まり、<code>}%</code> で終わります。</p>
+                <figure class="shot medium">
+                    <img src="img/template_table.png" alt="文字列(1行)と文字列(複数行)の列を持つ kintone のサブテーブルの例" width="745" height="294" loading="lazy">
+                    <figcaption>展開できるサブテーブルの例</figcaption>
+                </figure>
+                <p>たとえば次のテンプレートで JSON を出力できます。</p>
                 <pre><code>[
 %table{
   {
