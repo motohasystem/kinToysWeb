@@ -2,7 +2,11 @@
 
 > kinToys は kintone をクリップボードで便利にする Chrome 拡張です。
 > このファイルは、ユーザーが kinToys で kintone に「貼り付ける」ための JSON を LLM が生成するときの仕様書です。
-> 対象バージョン: kinToys 0.10.2 以降 / サイト: https://kintoys.app/ / ソース: https://github.com/motohasystem/kinToys
+> サイト: https://kintoys.app/ / ソース: https://github.com/motohasystem/kinToys
+
+- ドキュメントバージョン: 1.0.0
+- 対象 kinToys バージョン: 0.10.2 以降
+- 最終更新: 2026-11-18T13:58:16+09:00
 
 ## LLM への共通ルール
 
