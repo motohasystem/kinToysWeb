@@ -1,0 +1,241 @@
+# kinToys — LLM 向けペースト用 JSON 仕様
+
+> kinToys は kintone をクリップボードで便利にする Chrome 拡張です。
+> このファイルは、ユーザーが kinToys で kintone に「貼り付ける」ための JSON を LLM が生成するときの仕様書です。
+> 対象バージョン: kinToys 0.10.2 以降 / サイト: https://kintoys.app/ / ソース: https://github.com/motohasystem/kinToys
+
+## LLM への共通ルール
+
+- 出力は **JSON 本体だけ** を 1 つのコードブロックで返す。前後の説明文・コメント（`//` や `/* */`）・末尾カンマは入れない。
+- 文字列はすべてダブルクォート。数値も kintone の仕様に合わせて **文字列** で書く（例: `"value": "1200"`）。
+- フィールドコード・フィールド名・選択肢名は、ユーザーが示したものを **一字一句そのまま** 使う。不明なものは推測で作らず、ユーザーに確認するか、その項目を省略する。
+- 貼り付け先に存在しない項目は kinToys が自動でスキップする（エラーにはならない）。迷ったら省略してよい。
+- 最も確実なのは、ユーザーに kinToys で既存の設定・レコードを一度「コピー」してもらい、その JSON を見本にして書き換える方法。見本があれば、キー名や値の表記はそれに合わせる。
+
+貼り付け先は次の 3 つ。用途に合う形式を選ぶこと。
+
+| # | 用途 | 貼り付ける場所 | 形式 |
+|---|---|---|---|
+| 1 | レコードの値を入力する | レコード追加/編集画面 → kinToys ポップアップの貼り付け欄 | レコード JSON |
+| 2 | フィールドの設定を作る | アプリ設定のフォーム編集 → フィールド設定ダイアログの ⬇️ アイコン | フィールド設定 JSON |
+| 3 | 一覧の絞り込み・ソートを作る | レコード一覧の「絞り込む」ダイアログの ⬇️ アイコン | 絞り込み条件 JSON |
+
+（参考）サブテーブルへの CSV 貼り付けは末尾の「4. サブテーブル CSV」を参照。
+
+---
+
+## 1. レコード JSON（追加/編集画面への貼り付け）
+
+kintone JavaScript API の `kintone.app.record.get().record` と同じ形。キーが **フィールドコード**、値が `{ "type": ..., "value": ... }`。
+REST API 形式の `{ "record": { ... } }` で包んでもよい。
+
+```json
+{
+  "会社名": { "type": "SINGLE_LINE_TEXT", "value": "株式会社サンプル" },
+  "金額": { "type": "NUMBER", "value": "120000" },
+  "備考": { "type": "MULTI_LINE_TEXT", "value": "1行目\n2行目" },
+  "申込日": { "type": "DATE", "value": "2026-11-18" },
+  "ステータス": { "type": "DROP_DOWN", "value": "対応中" },
+  "タグ": { "type": "CHECK_BOX", "value": ["重要", "至急"] },
+  "明細": {
+    "type": "SUBTABLE",
+    "value": [
+      { "value": {
+          "品名": { "type": "SINGLE_LINE_TEXT", "value": "りんご" },
+          "数量": { "type": "NUMBER", "value": "3" }
+      } },
+      { "value": {
+          "品名": { "type": "SINGLE_LINE_TEXT", "value": "みかん" },
+          "数量": { "type": "NUMBER", "value": "5" }
+      } }
+    ]
+  }
+}
+```
+
+### 貼り付けのルール
+
+- **フィールドコードと type の両方が貼り付け先と一致したフィールドだけ** 反映される。`type` は省略しないこと。
+- ドロップダウン・ラジオボタン・チェックボックス・複数選択は、貼り付け先に存在する選択肢だけが反映される。
+- ルックアップのフィールドは、値を入れたあと自動で「取得」まで実行される。
+- サブテーブルは行ごとに `{ "value": { 列のフィールドコード: {type, value} } }`。行の `id` は不要（書いても引き継がれない）。
+- 次の type は貼り付け対象外なので出力しなくてよい: `RECORD_NUMBER` `__ID__` `__REVISION__` `CREATOR` `CREATED_TIME` `MODIFIER` `UPDATED_TIME` `CALC` `STATUS` `STATUS_ASSIGNEE` `CATEGORY` `FILE` `REFERENCE_TABLE` `GROUP` `LABEL` `SPACER` `HR`
+
+### type ごとの value の書き方
+
+| type | value |
+|---|---|
+| `SINGLE_LINE_TEXT` / `MULTI_LINE_TEXT` / `LINK` | 文字列（改行は `\n`） |
+| `RICH_TEXT` | HTML 文字列 |
+| `NUMBER` | 数値の文字列（例: `"1200"`、`"3.14"`） |
+| `DATE` | `"YYYY-MM-DD"` |
+| `TIME` | `"HH:MM"`（24 時間制） |
+| `DATETIME` | `"YYYY-MM-DDTHH:MM:00Z"`（UTC） |
+| `DROP_DOWN` / `RADIO_BUTTON` | 選択肢名の文字列 |
+| `CHECK_BOX` / `MULTI_SELECT` | 選択肢名の配列 |
+| `USER_SELECT` | `[{ "code": "ログイン名" }]` |
+| `ORGANIZATION_SELECT` / `GROUP_SELECT` | `[{ "code": "組織コード / グループコード" }]` |
+| `SUBTABLE` | 行の配列（上の例を参照） |
+
+---
+
+## 2. フィールド設定 JSON（フォーム編集のフィールド設定ダイアログへの貼り付け）
+
+フィールド設定ダイアログを開き、タイトル部の ⬇️ を押すとクリップボードの JSON が反映される（保存は手動）。
+**フィールドの種類（型）は JSON では決められない**。先にフォームへ目的の型のフィールドを置き、その設定ダイアログに貼り付ける。
+該当する入力欄がない項目は無視されるので、型に関係ない項目は省略する。
+
+### 共通
+
+| キー | 型 | 意味 |
+|---|---|---|
+| `fieldname` | string | フィールド名 |
+| `fieldcode` | string | フィールドコード |
+| `hideFieldName` | boolean | フィールド名を表示しない |
+| `requiredField` | boolean | 必須項目にする |
+| `uniqueCheck` | boolean | 値の重複を禁止する |
+| `min` / `max` | string | 文字数（文字列）または値（数値）の最小 / 最大 |
+| `defaultValue` | string | 初期値（文字列(1行)・複数行・数値） |
+| `hasExpression` | boolean | 自動計算する（文字列(1行)） |
+
+### 型ごと
+
+| 対象 | キー | 型 | 値 |
+|---|---|---|---|
+| 数値・計算 | `digit` | boolean | 桁区切りを表示する |
+| 数値・計算 | `displayScale` | string | 小数点以下の表示桁数（例: `"2"`） |
+| 数値・計算 | `unit` | string | 単位記号（例: `"円"`） |
+| 数値・計算 | `unitPosition` | string | `"BEFORE"`（前） / `"AFTER"`（後） |
+| 計算 | `expression` | string | 計算式（例: `"単価 * 数量"`） |
+| 計算 | `hideCalcExpression` | boolean | 計算式を表示しない |
+| 計算 | `expressionFormat` | string | `"NUMBER"` `"NUMBER_DIGIT"` `"DATETIME"` `"DATE"` `"TIME"` `"HOUR_MINUTE"` `"DAY_HOUR_MINUTE"` |
+| リンク | `protocol` | string | `"WEB"` / `"CALL"` / `"MAIL"` |
+| 日付・時刻・日時 | `dateDefault` | object | `{ "current": true/false, "values": [...] }`。`current` は「登録時の日時を初期値にする」、`values` は初期値の入力欄の値を画面の並び順に |
+| リッチエディター | `defaultValueHtml` | string | 初期値（HTML） |
+| ユーザー/組織/グループ選択 | `hasSelect` | boolean | 選択肢を指定する（候補・初期値の中身は手動設定） |
+| 添付ファイル | `thumbnailSize` | string | サムネイルの大きさ（画面の表示どおり。例: `"150x150"`） |
+| ドロップダウン・ラジオ・チェックボックス・複数選択 | `selections` | string[] | 選択肢（並び順どおり） |
+| 同上 | `defaultSelections` | string[] | 初期値として選択する選択肢（`selections` に含まれる名前） |
+| ラジオ・チェックボックス | `align` | string | `"horizontal"`（横） / `"vertical"`（縦） |
+
+例（ドロップダウン）:
+
+```json
+{
+  "fieldname": "対応状況",
+  "fieldcode": "対応状況",
+  "requiredField": true,
+  "selections": ["未対応", "対応中", "完了"],
+  "defaultSelections": ["未対応"]
+}
+```
+
+例（数値）:
+
+```json
+{
+  "fieldname": "金額",
+  "fieldcode": "金額",
+  "requiredField": true,
+  "digit": true,
+  "displayScale": "0",
+  "unit": "円",
+  "unitPosition": "AFTER",
+  "min": "0"
+}
+```
+
+### 関連レコード一覧 `referenceTable` / ルックアップ `lookup`
+
+ここで使う「フィールド」は **画面に表示されるフィールド名**（フィールドコードではない）。
+参照先・関連付け先のアプリは kinToys では選べないため、**ユーザーが先にダイアログでアプリを選択してから** 貼り付ける必要がある。`relatedApp` は表示名の記録用で、貼り付けても反映されない。
+
+```json
+{
+  "fieldname": "過去の問い合わせ",
+  "referenceTable": {
+    "relatedApp": "問い合わせ管理",
+    "condition": { "field": "顧客ID", "relatedField": "顧客ID" },
+    "displayFields": ["受付日", "件名", "対応状況"],
+    "filterCond": {
+      "conditions": [
+        { "field": "対応状況", "operator": "次のいずれかを含む", "values": ["未対応", "対応中"] }
+      ],
+      "junction": "AND"
+    },
+    "sort": [ { "field": "受付日", "order": "降順" } ],
+    "maxRecords": "10"
+  }
+}
+```
+
+```json
+{
+  "fieldname": "顧客ID",
+  "lookup": {
+    "relatedApp": "顧客管理",
+    "keyField": "顧客ID",
+    "fieldMappings": [
+      { "field": "会社名", "relatedField": "会社名" },
+      { "field": "担当者名", "relatedField": "担当者名" }
+    ],
+    "displayFields": ["会社名", "担当者名"],
+    "sort": [ { "field": "顧客ID", "order": "昇順" } ]
+  }
+}
+```
+
+- `condition`: 表示するレコードの条件（自アプリの `field` ＝ 参照先の `relatedField`）。
+- `fieldMappings`: ほかのフィールドのコピー（コピー先 `field` ← コピー元 `relatedField`）。
+- `keyField`（コピー元のフィールド）は新規フィールドのときだけ設定できる。保存済みのルックアップでは変更不可。
+- `filterCond` の各条件は「3. 絞り込み条件 JSON」の条件と同じ書き方。ただし `junction` は大文字の `"AND"` / `"OR"`。日付条件は `dateMode` に加えて `dateValues`（日付・時・分の入力値の配列）を使う。
+- `operator`・`order`・`dateMode` は kintone の画面に表示されるラベルそのもの（例: `"次のいずれかを含む"`, `"降順"`）。
+- ユーザー/組織/グループ選択の初期値など、別のピッカー画面で選ぶ設定は貼り付けに対応していない。
+
+---
+
+## 3. 絞り込み条件 JSON（一覧画面の「絞り込む」ダイアログへの貼り付け）
+
+ダイアログのタイトル部の ⬇️ で反映される。**既存の条件はすべてクリアしてから反映** される。反映後、ユーザーが「適用」を押す。
+
+```json
+{
+  "conditions": [
+    { "field": "ステータス", "operator": "次のいずれかを含む", "values": ["書類不備あり"] },
+    { "field": "申請日", "operator": "=（等しい）", "dateMode": "日付を指定", "value": "2026-09-11" },
+    { "field": "会社名", "operator": "次を含む", "value": "サンプル" }
+  ],
+  "junction": "and",
+  "sort": [
+    { "field": "レコード番号", "order": "降順" }
+  ]
+}
+```
+
+| キー | 内容 |
+|---|---|
+| `conditions[].field` | 画面に表示されるフィールド名 |
+| `conditions[].operator` | 演算子。ダイアログのドロップダウンに表示されるラベルそのもの |
+| `conditions[].value` | テキスト・数値・日付の値 |
+| `conditions[].values` | ドロップダウン・チェックボックスなど複数選択型の値（配列） |
+| `conditions[].dateMode` | 日付・日時の指定方法のラベル（例: `"日付を指定"`, `"今日"`） |
+| `junction` | 条件の結合。小文字の `"and"` / `"or"` |
+| `sort` | `{ "field": フィールド名, "order": "昇順" / "降順" }` の配列（複数可） |
+
+演算子や日付指定のラベルは kintone の表示言語・フィールド型によって変わる。正確なラベルが分からない場合は、ユーザーに一度その条件を画面で作って ⬆️ でコピーしてもらい、それを見本にする。
+
+---
+
+## 4. サブテーブル CSV（参考）
+
+オプション画面で「サブテーブルインポーター」を有効にすると、レコード編集画面のサブテーブルに CSV を貼り付けて行を追加できる。
+
+- 1 行目はヘッダー。**サブテーブルの列見出し（画面に表示される列名）** と同じ文字列にする。
+- 2 行目以降が 1 行ずつテーブルの行になる。
+- 区切りは半角カンマ。値の中にカンマや改行を含めない（引用符で囲んでもカンマは区切りとして扱われる）。
+
+```csv
+品名,数量,単価
+りんご,3,120
+みかん,5,80
+```
