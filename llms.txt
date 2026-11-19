@@ -1,0 +1,25 @@
+# kinToys
+
+> kinToys は、kintone のデータをクリップボード経由でコピー＆ペーストできるようにする無料の Chrome 拡張です。一覧・詳細画面のデータを CSV / TSV / JSON / YAML やテンプレートでコピーし、レコード値・フィールド設定・絞り込み条件を JSON で kintone に貼り付けられます。拡張機能は情報を一切収集せず、外部へのデータ送信も行いません。
+
+- 最終更新: 2026-11-19T09:31:57+09:00
+
+## LLM 向け仕様
+
+- [ペースト用 JSON 仕様（llm.txt）](https://kintoys.app/llm.txt): kinToys で kintone に貼り付けるレコード JSON・フィールド設定 JSON・絞り込み条件 JSON・サブテーブル CSV の書式。ユーザーに貼り付け用データを作るよう頼まれたら、まずこれを読むこと。
+
+## ドキュメント
+
+- [トップ](https://kintoys.app/): kinToys の概要と主な機能
+- [機能](https://kintoys.app/features): 17 の機能を画面ごとに紹介
+- [使い方](https://kintoys.app/usage): インストール、ポップアップ、画面クリック、右クリックメニュー、無効モード、FAQ
+- [テンプレート記法](https://kintoys.app/usage#template): `%フィールドコード%` による置換と、サブテーブルを展開するループ記法
+- [オプション画面](https://kintoys.app/usage#options): テンプレート設定とオプション設定
+- [プライバシーポリシー](https://kintoys.app/privacy): 情報を収集せず、外部送信もしないことの明記
+
+## Optional
+
+- [Chrome ウェブストア](https://chromewebstore.google.com/detail/kintoys/johmoplafihagepgbceblbhlmacejoee): インストールページ（無料）
+- [GitHub](https://github.com/motohasystem/kinToys): ソースコード、不具合報告、要望
+- [CHANGELOG](https://github.com/motohasystem/kinToys/blob/main/src/CHANGELOG.md): 更新履歴
+- [note マガジン](https://note.com/motohasystem/m/m4abef4516e33): 作者による活用記事
